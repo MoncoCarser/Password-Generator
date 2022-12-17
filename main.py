@@ -1,29 +1,18 @@
-import random, os
+import random, os, string
 
 
 
-numbers_list = ["0","1","2","3","4","5","6","7","8","9"]
-letters_list = ["a","b","c","d", "e","f", "g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-special_chars = ["!","#","$","&","%","/","@","[","]","?"]
-
+numbers_list = string.digits
+letters_list = string.ascii_letters
+special_chars = string.punctuation
+all_chars = numbers_list + letters_list + special_chars
 
 def password_generator(maximum=19):
     os.system("clear")
     new_password = []
     while len(new_password) <= maximum:
-            action = random.randint(0,3)
-            if action == 0:
-                item = random.choice(numbers_list)
-                new_password.append(item)
-            elif action == 1:
-                item = random.choice(letters_list)
-                new_password.append(item)
-            elif action == 2:
-                item = random.choice(letters_list).upper()
-                new_password.append(item)
-            else:
-                item = random.choice(special_chars)
-                new_password.append(item)
+        item = random.choice(all_chars)
+        new_password.append(item)
     print()
     for character in new_password:
         print(f"{character}", end="")
