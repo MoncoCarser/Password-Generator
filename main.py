@@ -7,10 +7,10 @@ letters_list = string.ascii_letters
 special_chars = string.punctuation
 all_chars = numbers_list + letters_list + special_chars
 
-def password_generator(maximum=19):
+def password_generator(pre_set=19):
     os.system("clear")
     new_password = []
-    while len(new_password) <= maximum:
+    while len(new_password) <= pre_set:
         item = random.choice(all_chars)
         new_password.append(item)
     print()
